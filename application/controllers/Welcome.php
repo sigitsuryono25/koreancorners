@@ -4,24 +4,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Welcome extends CI_Controller {
 
-    /**
-     * Index Page for this controller.
-     *
-     * Maps to the following URL
-     * 		http://example.com/index.php/welcome
-     * 	- or -
-     * 		http://example.com/index.php/welcome/index
-     * 	- or -
-     * Since this controller is set as the default controller in
-     * config/routes.php, it's displayed at http://example.com/
-     *
-     * So any other public methods not prefixed with an underscore will
-     * map to /index.php/welcome/<method_name>
-     * @see https://codeigniter.com/user_guide/general/urls.html
-     */
     public function index() {
-        $this->load->view('headfoot/header');
+        $notShow = "WHERE id NOT IN ('2', '3', '4', '5', '7', '11')";
+        $showing = "WHERE id IN ('2', '3', '4', '5', '7', '11')";
+        $data['lainnya'] = $this->front->getKategoriList($notShow);
+        $data['kategori'] = $this->front->getKategoriList($showing);
+        
+        $data['first_new'] = $this->front->getRecentArticle("LIMIT 0,1")->row();
+        $data['second__third_new'] = $this->front->getRecentArticle("LIMIT 1,2")->result();
+        
+        $data['idol'] = $this->front->getKontenByKategori('idol-celebrity', "LIMIT 0,3")->result();
+        $data['drama'] = $this->front->getKontenByKategori('drama-movie', "LIMIT 0,10")->result();
+        $data['idol'] = $this->front->getKontenByKategori('idol-celebrity', "LIMIT 0,3")->result();
+        $this->load->view('headfoot/header', $data);
         $this->load->view('home');
+        $this->load->view('headfoot/footer');
+    }
+
+    public function detail_article($slug) {
+        $notShow = "WHERE id NOT IN ('2', '3', '4', '5', '7', '11')";
+        $showing = "WHERE id IN ('2', '3', '4', '5', '7', '11')";
+        $data['lainnya'] = $this->front->getKategoriList($notShow);
+        $data['kategori'] = $this->front->getKategoriList($showing);
+        
+        $data['article'] = $this->front->getDetailArticle($slug)->row();
+        $this->load->view('headfoot/header', $data);
+        $this->load->view('detail-article');
         $this->load->view('headfoot/footer');
     }
 

@@ -1,6 +1,7 @@
 <!-- /slider -->
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<script src="assets/js/grids.owl.carousel.js"></script>
+<script src="<?php echo base_url() ?>assets/js/jquery-3.3.1.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/grids.owl.carousel.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script>
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
@@ -36,7 +37,6 @@
     })
 </script>
 <!-- /slider -->
-</section>
 
 <!-- footer-66 -->
 <footer class="w3l-footer-66">
@@ -66,7 +66,7 @@
                     <h6>Editor Pics</h6>
                     <div class="row editor-pics mb-3">
                         <div class="col-3 item-pic">
-                            <img src="assets/images/m4.jpg" class="img-fluid" alt="">
+                            <img src="<?php echo base_url() ?>assets/images/m4.jpg" class="img-fluid" alt="">
 
                         </div>
                         <div class="col-9 item-details">
@@ -80,7 +80,7 @@
                     </div>
                     <div class="row editor-pics mb-3">
                         <div class="col-3 item-pic">
-                            <img src="assets/images/m1.jpg" class="img-fluid" alt="">
+                            <img src="<?php echo base_url() ?>assets/images/m1.jpg" class="img-fluid" alt="">
 
                         </div>
                         <div class="col-9 item-details">
@@ -94,7 +94,7 @@
                     </div>
                     <div class="row editor-pics mb-3">
                         <div class="col-3 item-pic">
-                            <img src="assets/images/m3.jpg" class="img-fluid" alt="">
+                            <img src="<?php echo base_url() ?>assets/images/m3.jpg" class="img-fluid" alt="">
 
                         </div>
                         <div class="col-9 item-details">
@@ -138,7 +138,7 @@
             </div>
         </div>
         <!-- move top -->
-        <button onclick="topFunction()" id="movetop" title="Go to top">
+        <button onclick="topFunction()" style="bottom: 20px" id="movetop" title="Go to top">
             <span class="fa fa-arrow-up" aria-hidden="true"></span>
         </button>
         <script>

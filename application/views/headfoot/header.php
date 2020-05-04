@@ -8,7 +8,7 @@
         <title> Korean Corners | Just Another Korean Info </title>
         <!-- Template CSS -->
         <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/style-starter.css">
-        <!--<link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">-->
+        <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
         <link href="<?php echo base_url('assets/') ?>css/font-awesome.min.css" rel="stylesheet">
 
 
@@ -23,7 +23,7 @@
                         <!-- /header-top-inn-->
                         <div class="header-inn-top row">
                             <div class="logo-brand col-6">
-                                <a class="navbar-brand" href="index.html">
+                                <a class="navbar-brand" href="<?php echo base_url() ?>">
                                     <!--<img src="assets/images/logo.png" alt="" title="Webzine" style="max-height:30px;width:100%;" />-->
                                     <h4 class="text-white h3">Korean Corners</h4>
                                 </a>
@@ -95,26 +95,8 @@
 
                                     </div>
                                     <div class="search-right">
-
-                                        <a href="#search" title="search"><span class="fa fa-search"
-                                                                               aria-hidden="true"></span></a>
-                                        <!-- search popup -->
-
-
-                                        <div id="search" class="pop-overlay">
-                                            <div class="popup">
-
-                                                <form action="#" method="post" class="search-box">
-                                                    <input type="search" placeholder="Keyword" name="search" required="required"
-                                                           autofocus="">
-                                                    <button type="submit" class="btn mt-3">Search</button>
-                                                </form>
-
-                                            </div>
-
-                                            <a class="close" href="#">×</a>
-                                        </div>
-                                        <!-- /search popup -->
+                                        <a href="#search" title="search">
+                                            <span class="fa fa-search" aria-hidden="true"></span></a>
                                     </div>
                                 </div>
                                 <!-- overlay-menuv-menu -->
@@ -135,110 +117,37 @@
                             <div class="collapse navbar-collapse" id="navbarNav">
                                 <ul class="navbar-nav mr-lg-auto">
 
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="javascript:void(0)" >
+                                            Home
+                                        </a>
+                                    </li>
+                                    <?php foreach ($kategori->result() as $r) { ?>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?php echo site_url('category/' . $r->slug) ?>"><?php echo $r->nama ?></a>
+                                        </li>
+                                    <?php } ?>
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Home</a>
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                           id="navbarDropdown" role="button" 
+                                           data-toggle="dropdown" 
+                                           aria-haspopup="true" 
+                                           aria-expanded="false"
+                                           >
+                                            Lainnya
+                                        </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="index.html">Home</a>
-                                            <a class="dropdown-item" href="home-1.html">Home V1</a>
+                                            <?php foreach ($lainnya->result() as $key => $k) { ?>
+                                                <a class="dropdown-item px-3 py-1" href="<?php echo site_url('category/' . $k->slug) ?>"><?php echo $k->nama ?></a>
+                                            <?php }
+                                            ?>
                                         </div>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="lifestyle.html">Lifestyle</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Food</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="contact.html">Contact</a>
-                                    </li>
                                 </ul>
-                                <div class="social-right">
-                                    <ul class="social-icons-top">
-                                        <li><a class="facebook" href="#"><span class="fa fa-facebook"
-                                                                               aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a class="twitter" href="#"><span class="fa fa-twitter"
-                                                                              aria-hidden="true"></span></a></li>
-                                        <li><a class="google" href="#"><span class="fa fa-google-plus"
-                                                                             aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a class="instagram" href="#"><span class="fa fa-instagram"
-                                                                                aria-hidden="true"></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </nav>
-
-                        <!-- /.nav-collapse -->
+                        </nav>
+                    </div>
                 </header>
             </div>
         </section>
-        <!--w3l-banner-slider-main-->
-        <section class="w3l-banner-slider-main">
-            <div class="container">
-                <div class="content-baner-inf">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="carousel-caption">
-                                    <h3>A New Report Shows That Fashion Ads Are Still Overwhelmingly White Dresses</h3>
-                                    <p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-                                    <div class="date-caption">
-                                        20.Dec.2019
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item item2">
-                                <div class="carousel-caption">
-                                    <h3>Santorini, Greece white and blue painted buildings near body of water</h3>
-                                    <p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-                                    <div class="date-caption">
-                                        22.Dec.2019
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item item3">
-                                <div class="carousel-caption">
-                                    <h3>Penguins on snow covered ground,Looking Awesome to see</h3>
-                                    <p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-                                    <div class="date-caption">
-                                        23.Dec.2019
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="carousel-item item4">
-                                <div class="carousel-caption">
-                                    <h3>7 Ways Amazon Whole Foods Is Catering to Every Millennial’s Whims</h3>
-                                    <p>Lorem ipsum dolor sit amet,Vestibulum orci justo, vehicula vel sapien sit amet.</p>
-                                    <div class="date-caption">
-                                        25.Dec.2019
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <script src="assets/js/jquery-3.3.1.min.js"></script>
-            <script src="assets/js/bootstrap.min.js"></script>
-
-        </section>
-        <!-- //w3l-banner-slider-main -->

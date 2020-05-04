@@ -30,12 +30,6 @@
                             </div>
                             <div class="menu-overlay-left col-6 ml-auto">
                                 <div class="two-pops d-flex">
-                                    <a href="#" class="author-user">
-                                        <span class="fa fa-user"
-                                              aria-hidden="true"></span></a>
-
-
-                                    <!-- overlay-menuv-menu -->
                                     <div class="overlay-menuv-hny">
                                         <input type="checkbox" id="op"></input>
                                         <div class="side-menu-hny">

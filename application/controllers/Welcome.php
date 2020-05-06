@@ -5,8 +5,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Welcome extends CI_Controller {
 
     public function index() {
-        $notShow = "WHERE id NOT IN ('2', '3', '4', '5', '7', '11')";
-        $showing = "WHERE id IN ('2', '3', '4', '5', '7', '11')";
+        $notShow = "WHERE id NOT IN ('1','2', '3', '4', '5', '7')";
+        $showing = "WHERE id IN ('1','2', '3', '4', '5', '7')";
         $data['lainnya'] = $this->front->getKategoriList($notShow);
         $data['kategori'] = $this->front->getKategoriList($showing);
         

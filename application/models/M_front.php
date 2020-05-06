@@ -11,26 +11,51 @@
  *
  * @author sigit
  */
-class M_front extends CI_Model{
+class M_front extends CI_Model {
+
     //put your code here
-    
-    function getKategoriList($showIn){
-        return $this->db->query("SELECT * FROM tb_kategori $showIn");
+
+    function getKategoriList($showIn) {
+        return $this->db->query("SELECT * FROM tb_kategori_source $showIn");
     }
-    
-    function getKontenByKategori($slug, $limit = null){
-        return $this->db->query("SELECT * FROM tb_post INNER JOIN tb_kategori ON category=tb_kategori.id WHERE slug IN ('$slug') $limit");
+
+    function getKontenByKategori($slug, $limit = null) {
+        return $this->db->query("SELECT * FROM tb_post INNER JOIN tb_kategori_source ON category=tb_kategori_source.id WHERE slug IN ('$slug') $limit");
     }
-    
+
     function getPopularPost() {
         return $this->db->query("SELECT * FROM tb_post ORDER BY viewers DES LIMIT 0,7");
     }
-    
-    function getRecentArticle($limit){
+
+    function getRecentArticle($limit) {
         return $this->db->query("SELECT * FROM tb_post ORDER BY date_post DESC $limit");
     }
-    
-    function getDetailArticle($slugTitle){
-        return $this->db->query("SELECT * FROM tb_post LEFT JOIN tb_kategori ON category=tb_kategori.id WHERE slug_title IN ('$slugTitle')");
+
+    function getDetailArticle($slugTitle) {
+        return $this->db->query("SELECT * FROM tb_post LEFT JOIN tb_kategori_source ON category=tb_kategori_source.id WHERE slug_title IN ('$slugTitle')");
     }
+
+    //API Service
+
+    function getKategoriSource($idSource) {
+        return $this->db->query("SELECT *, tb_kategori_source.id as id_kategori_source  FROM tb_kategori_source INNER JOIN tb_source ON tb_kategori_source.id_source=tb_source.id WHERE id_source IN ('$idSource')");
+    }
+
+    function getAllKategori() {
+        return $this->db->query("SELECT * FROM tb_kategori_source ORDER BY id ASC");
+    }
+
+    function getAllSource() {
+        return $this->db->query("SELECT * FROM tb_source ORDER BY id ASC");
+    }
+
+    function getLatestPost($limit) {
+        return $this->db->query("SELECT * FROM tb_post LEFT JOIN tb_kategori_source ON tb_post.category=tb_kategori_source.id "
+                        . " LIMIT $limit");
+    }
+
+    function insertArticle($table, $data) {
+        return $this->db->insert($table, $data);
+    }
+
 }

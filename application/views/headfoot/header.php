@@ -11,7 +11,28 @@
         <link href="//fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
         <link href="<?php echo base_url('assets/') ?>css/font-awesome.min.css" rel="stylesheet">
         <script data-ad-client="ca-pub-5324770724888200" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '284955479193568',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v7.0'
+            });
 
+            FB.AppEvents.logPageView();   
+
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
     </head>
 
     <body>

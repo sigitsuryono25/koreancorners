@@ -5,23 +5,14 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 
  <script>
-          window.fbAsyncInit = function() {
            FB.init({
-             appId : '284955479193568',
-             autoLogAppEvents : true,
-             xfbml : true,
-             version : 'v7.0'
+             appId      : '284955479193568',
+             cookie     : true,
+             xfbml      : true,
+             version    : 'v7.0'
            });
-
-           FB.api(
-            '/me',
-            'GET',
-            {"fields":"id,name,posts{picture,message,comments{likes}}"},
-            function(response) {
-                console.log(response);
-            }
-           );
-         };
+        
+      FB.AppEvents.logPageView();   
 
          (function(d, s, id){
             var js, fjs = d.getElementsByTagName(s)[0];

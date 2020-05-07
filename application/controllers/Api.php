@@ -130,6 +130,7 @@ class Api extends CI_Controller {
         $datePost = $this->input->post('date_post');
         $slugTitle = $this->input->post('slug_title');
         $originalLink = $this->input->post('original_link');
+      
 
         $dataInsert = [
             'title' => $title,
@@ -139,9 +140,11 @@ class Api extends CI_Controller {
             'category' => $category,
             'date_post' => $datePost,
             'slug_title' => $slugTitle,
-            'original_link' => "https:".$originalLink,
+            'original_link' => "https://" . $originalLink,
         ];
 
+//        $isArticleExist = $this->front->getArticleBySlug($slugTitle);
+//        if ($isArticleExist->num_rows() == 0) {
         $res = $this->front->insertArticle('tb_post', $dataInsert);
         if ($res) {
             $data['message'] = "insert berhasil";
@@ -150,6 +153,10 @@ class Api extends CI_Controller {
         } else {
             echo json_encode(['message' => "insert gagal", 'code' => 404]);
         }
+//        } 
+//        else {
+//            echo json_encode(['message' => "article exist", 'code' => 500]);
+//        }
     }
 
 }

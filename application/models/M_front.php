@@ -34,6 +34,10 @@ class M_front extends CI_Model {
     function getDetailArticle($slugTitle) {
         return $this->db->query("SELECT * FROM tb_post LEFT JOIN tb_kategori_source ON category=tb_kategori_source.id WHERE slug_title IN ('$slugTitle')");
     }
+    
+    function getRandArticle(){
+        return $this->db->query("SELECT * FROM `tb_post` ORDER BY RAND() DESC LIMIT 8");
+    }
 
     //API Service
 
@@ -52,6 +56,10 @@ class M_front extends CI_Model {
     function getLatestPost($limit) {
         return $this->db->query("SELECT * FROM tb_post LEFT JOIN tb_kategori_source ON tb_post.category=tb_kategori_source.id "
                         . " LIMIT $limit");
+    }
+    
+    function getArticleBySlug($slug){
+        return $this->db->query("SELET * FROM tb_post WHERE slug_title IN ('$slug')");
     }
 
     function insertArticle($table, $data) {

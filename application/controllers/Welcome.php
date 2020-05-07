@@ -12,10 +12,9 @@ class Welcome extends CI_Controller {
         
         $data['first_new'] = $this->front->getRecentArticle("LIMIT 0,1")->row();
         $data['second__third_new'] = $this->front->getRecentArticle("LIMIT 1,2")->result();
-        
-        $data['idol'] = $this->front->getKontenByKategori('idol-celebrity', "LIMIT 0,3")->result();
         $data['drama'] = $this->front->getKontenByKategori('drama-movie', "LIMIT 0,10")->result();
-        $data['idol'] = $this->front->getKontenByKategori('idol-celebrity', "LIMIT 0,3")->result();
+        $data['idol'] = $this->front->getKontenByKategori('idol-celebrity', "LIMIT 0,4")->result();
+        $data['random'] = $this->front->getRandArticle()->result();
         $this->load->view('headfoot/header', $data);
         $this->load->view('home');
         $this->load->view('headfoot/footer');

@@ -8,13 +8,13 @@
                     <div class="maghny-gd-1 col-lg-6">
                         <div class="maghny-grid">
                             <figure class="effect-lily" style="cursor: inherit">
-                                <img class="img-fluid" src="<?php echo base_url() ?>assets/images/grid20.jpg" alt="">
+                                <img class="img-fluid" src="<?php echo $first_new->thumbnail ?>" alt="">
                                 <figcaption class="w3set-hny">
-                                    <div>
-                                        <h4 class="top-text"><?php echo $first_new->title ?></h4>
-                                        <p class="lead"><?php echo date_format(date_create($first_new->date_post), "M, d Y") ?></p>
+                                    <div class="py-5">
+                                        <h4 class="top-text"><a class="text-white" href="<?php echo site_url($this->etc->yeardate($first_new->date_post) . $first_new->slug_title) ?>" style="cursor: pointer"><?php echo $first_new->title ?></a></h4>
+                                        <p class="lead mt-3"><?php echo date_format(date_create($first_new->date_post), "M, d Y") ?></p>
                                         <br>
-                                        <a href="<?php echo site_url($this->etc->yeardate($first_new->date_post) . $first_new->slug_title) ?>" style="cursor: pointer" class="read-more btn mt-3 text-white">Read <span style="color: #7A1755">More</span></a>
+                                        <br>
                                     </div>
                                 </figcaption>
                             </figure>
@@ -25,14 +25,14 @@
                             <?php foreach ($second__third_new as $b) { ?>
                                 <div class="maghny-gd-1 col-md-6">
                                     <div class="maghny-grid">
-                                        <img class="img-fluid" src="<?php echo base_url() ?>assets/images/grid7.jpg">
+                                        <img class="img-fluid" src="<?php echo $b->thumbnail ?>">
                                     </div>
-                                    <h5 class="top-title mt-2">
-                                        <a href="#">
+                                    <h6 class="top-title mt-2 font-weight-bold">
+                                        <a href="<?php echo site_url($this->etc->yeardate($b->date_post) . $b->slug_title) ?>">
                                             <?php echo $b->title ?>
                                         </a>
-                                    </h5>
-                                    <div class="mag-post-meta mt-3">
+                                    </h6>
+                                    <div class="mag-post-meta mt-1">
                                         <span class="author-date"><?php echo date_format(date_create($b->date_post), "M, d Y") ?></span>
                                     </div>
                                     <a href="<?php echo site_url($this->etc->yeardate($b->date_post) . $b->slug_title) ?>" style="cursor: pointer" class="read-more btn mt-3">Read More</a>
@@ -50,29 +50,28 @@
                         <h3 class="hny-title">IDOL <span>&amp; Seleb</span></h3>
                         <!--/mag-left-grid-1-->
                         <div class="maghny-grids-inf row">
-                            <div class="maghny-gd-1 col-lg-4 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="<?php echo base_url() ?>assets/images/grid1.jpg" alt="">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Man holding camera and woman playing <span>violin</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
-
-                                        </figcaption>
-                                    </figure>
+                            <?php foreach ($idol as $i) { ?>
+                                <div class="maghny-gd-1 col-lg-6 col-md-6 mt-3">
+                                    <div class="maghny-grid">
+                                        <div style="
+                                             background-image: url('<?php echo $i->thumbnail ?>');
+                                             width: 100%;
+                                             height: 227px;
+                                             background-repeat: no-repeat;
+                                             background-position: top center;
+                                             ">
+                                        </div>
+                                    </div>
+                                    <p class="font-weight-bold mt-2 h6">
+                                        <a href="<?php echo site_url($this->etc->yeardate($i->date_post) . $i->slug_title) ?>">
+                                            <?php echo $i->title ?>
+                                        </a>
+                                    </p>
+                                    <div class="mag-post-meta mt-3">
+                                        <span class="author-date"><?php echo date_format(date_create($i->date_post), "M, d Y") ?></span>
+                                    </div>
                                 </div>
-                                <h5><a href="#">
-                                        There are many variations that focuses on presenting</a></h5>
-
-                                <div class="mag-post-meta mt-3"><a href="#"><img src="<?php echo base_url() ?>assets/images/admin.jpg"
-                                                                                 class="img-fluid rounded-circle admin-img" alt=""></a> <span
-                                        class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-                                            Brain</a> </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
+                            <?php } ?>
                         </div>
                     </div>
                     <!--//mag-hny-content-1-->
@@ -81,206 +80,55 @@
                         <h3 class="hny-title">Drama <span>&amp; Movie</span></h3>
                         <!--/mag-left-grid-1-->
                         <div class="maghny-grids-inf row">
-                            <div class="maghny-gd-1 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="<?php echo base_url() ?>assets/images/grid4.jpg" alt="">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Sittin people beside table inside <span> room</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
-
-                                        </figcaption>
-                                    </figure>
+                            <?php foreach ($drama as $key => $d) { ?>
+                                <div class="maghny-gd-1 col-md-6">
+                                    <div class="maghny-grid">
+                                        <img class="img-fluid" src="<?php echo $d->thumbnail ?>" alt="" style="height: 227px; width: 100%">
+                                    </div>
+                                    <p class="mt-2 font-weight-bold h6">
+                                        <a href="<?php echo site_url($this->etc->yeardate($d->date_post) . $d->slug_title) ?>">
+                                            <?php echo $d->title ?>
+                                        </a>
+                                    </p>
+                                    <div class="mag-post-meta">
+                                        <span class="author-date"><?php echo date_format(date_create($d->date_post), "M, d Y") ?></span>
+                                    </div>
                                 </div>
-                                <h5><a href="#">
-                                        There are many variations that focuses on presenting</a></h5>
-                                <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-                                <div class="mag-post-meta"><a href="#"><img src="<?php echo base_url() ?>assets/images/admin.jpg"
-                                                                            class="img-fluid rounded-circle admin-img admin-img1" alt=""></a> <span
-                                        class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name">John
-                                            Brain</a> </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
-                            <div class="maghny-gd-1 col-md-6">
-                                <div class="maghny-grid">
-                                    <figure class="effect-lily">
-                                        <img class="img-fluid" src="<?php echo base_url() ?>assets/images/grid5.jpg">
-                                        <figcaption>
-                                            <div>
-                                                <h4>Tidy Room Filled with <span>furniture</span></h4>
-                                                <p>Jan.20.2020 </p>
-                                            </div>
-
-                                        </figcaption>
-                                    </figure>
-                                </div>
-                                <h5><a href="#">
-                                        There are many variations that focuses on presenting</a></h5>
-                                <p>Vivamus a ligula quam. Ut blandit eu leo non suscipit. Duis feugiat tortor sed.</p>
-                                <div class="mag-post-meta"><a href="#"><img src="<?php echo base_url() ?>assets/images/admin.jpg"
-                                                                            class="img-fluid rounded-circle admin-img admin-img1" alt=""></a><span
-                                        class="meta-author"><span>By&nbsp;</span><a href="#" class="author-name"> John
-                                            Brain</a> </span>
-                                    <span class="author-date">Jan 5, 2020</span>
-                                </div>
-                            </div>
+                                <?php
+                                if ($key == 1) {
+                                    break;
+                                }
+                            }
+                            ?>
                         </div>
                         <!--/mag-sub-grids-->
                         <div class="row mng-front-cont mt-5">
-                            <div class="mag-small-post col-md-6">
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m1.jpg" class="img-fluid" alt=""></a>
+                            <?php
+                            foreach ($drama as $key => $d) {
+                                if ($key !== 1 && $key !== 0) {
+                                    ?>
+                                    <div class="mag-small-post col-md-6">
+                                        <div class="post-item-grid row mb-4">
+                                            <div class="mag-post-thumb col-5">
+                                                <a href="#"><img src="<?php echo $d->thumbnail ?>" class="img-fluid" alt=""></a>
 
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a> </h4>
-                                        <div class="mag-post-meta mt-3"> <span
-                                                class="meta-author"><span>By&nbsp;</span><a href="#"
-                                                                                        class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
+                                            </div>
+                                            <div class="mag-post-details col-7">
+                                                <p class="mag-post-title font-weight-bold">
+                                                    <a href="<?php echo site_url($this->etc->yeardate($d->date_post) . $d->slug_title) ?>">
+                                                        <?php echo $d->title ?>
+                                                    </a> 
+                                                </p>
+                                                <div class="mag-post-meta"> 
+                                                    <span class="author-date"><?php echo date_format(date_create($d->date_post), "M, d Y") ?></span>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m2.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a>
-                                        </h4>
-                                        <div class="mag-post-meta mt-3"> <span
-                                                class="meta-author"><span>By&nbsp;</span><a href="#"
-                                                                                        class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m3.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a> </h4>
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m4.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a>
-                                        </h4>
-
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-                            </div>
-                            <div class="mag-small-post col-md-6">
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m12.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a> </h4>
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m9.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a>
-                                        </h4>
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m10.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a> </h4>
-
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m11.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">There are many variations that focuses on presenting</a>
-                                        </h4>
-
-
-                                        <div class="mag-post-meta"> <span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name"> John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                                    </div>   
+                                    <?php
+                                }
+                            }
+                            ?>
                         </div>
                         <!--//mag-sub-grids-->
                     </div>
@@ -821,83 +669,24 @@
                         <div class="side-bar-hny-recent mb-5">
                             <h4 class="mag-side-title">Random <span>Article</span></h4>
                             <div class="mag-small-post">
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m1.jpg" class="img-fluid" alt=""></a>
+                                <?php foreach ($random as $key => $r) { ?>
+                                    <div class="post-item-grid row mb-4">
+                                        <div class="mag-post-thumb col-5">
+                                            <a href="#"><img src="<?php echo $r->thumbnail ?>" class="img-fluid" alt=""></a>
+                                        </div>
+                                        <div class="mag-post-details col-7">
+                                            <span class="mag-post-title">
+                                                <a href="<?php echo site_url($this->etc->yeardate($r->date_post) . $r->slug_title) ?>">
+                                                    <?php echo $r->title ?>
+                                                </a>
+                                            </span>
+                                            <div class="mag-post-meta">
+                                                <span class="author-date"><?php echo date_format(date_create($r->date_post), "M, d Y") ?></span>
 
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">Group of women dancing on stage</a> </h4>
-
-                                        <div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name">John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m2.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">Photo of man wearing astronaut suit hanging near cameras</a>
-                                        </h4>
-
-                                        <div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name">John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m3.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">Pancake with chocolate syrup on ceramic plate</a> </h4>
-
-
-                                        <div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name">John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="post-item-grid row mb-4">
-                                    <div class="mag-post-thumb col-4">
-                                        <a href="#"><img src="<?php echo base_url() ?>assets/images/m4.jpg" class="img-fluid" alt=""></a>
-
-                                    </div>
-                                    <div class="mag-post-details col-8">
-                                        <h4 class="mag-post-title">
-                                            <a href="#">White and pink petaled flowers on metal fence near
-                                                concrete</a>
-                                        </h4>
-
-
-                                        <div class="mag-post-meta"><span class="meta-author"><span>By&nbsp;</span><a
-                                                    href="#" class="author-name">John Brain</a> </span>
-                                            <span class="author-date">Jan 5, 2020</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
+                                <?php } ?>
                             </div>
                         </div>
                         <div class="side-bar-hny-recent mb-5">

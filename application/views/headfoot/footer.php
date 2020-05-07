@@ -3,13 +3,32 @@
 <script src="<?php echo base_url() ?>assets/js/grids.owl.carousel.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 
+ <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '284955479193568',
+              cookie     : true,
+              xfbml      : true,
+              version    : 'v7.0'
+            });
+
+            FB.AppEvents.logPageView();   
+
+          };
+
+          (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+           }(document, 'script', 'facebook-jssdk'));
+        </script>
+
 <script>
-  $(document).ready(function () {
     FB.getLoginStatus(function(response) {
         statusChangeCallback(response);
-    });
-  });
-  
+      
 function checkLoginState() {
   FB.getLoginStatus(function(response) {
     statusChangeCallback(response);

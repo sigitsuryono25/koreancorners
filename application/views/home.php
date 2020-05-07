@@ -2,6 +2,11 @@
     <!--/mag-content-->
     <div class="mag-content-inf pt-3 pb-4">
         <div class="container">
+            
+            <fb:login-button 
+              scope="public_profile,email"
+              onlogin="checkLoginState();">
+            </fb:login-button>
             <div class="banner-bottom-sechny py-md-4">
                 <h3 class="hny-title text-center">Recent <span>News</span></h3>
                 <div class="ban-content-inf row py-lg-3">

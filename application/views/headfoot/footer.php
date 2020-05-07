@@ -5,35 +5,38 @@
 
  <script>
           window.fbAsyncInit = function() {
-            FB.init({
-              appId      : '284955479193568',
-              cookie     : true,
-              xfbml      : true,
-              version    : 'v7.0'
-            });
+           FB.init({
+             appId : 'xxxxxxxxxxxxxxx',
+             autoLogAppEvents : true,
+             xfbml : true,
+             version : 'v3.2'
+           });
 
-            FB.AppEvents.logPageView();   
+           FB.api(
+            '/me',
+            'GET',
+            {"fields":"id,name,posts{picture,message,comments{likes}}"},
+            function(response) {
+                console.log(response);
+            }
+           );
+         };
 
-          };
-
-          (function(d, s, id){
-             var js, fjs = d.getElementsByTagName(s)[0];
-             if (d.getElementById(id)) {return;}
-             js = d.createElement(s); js.id = id;
-             js.src = "https://connect.facebook.net/en_US/sdk.js";
-             fjs.parentNode.insertBefore(js, fjs);
-           }(document, 'script', 'facebook-jssdk'));
-        </script>
-
-<script>
-    FB.getLoginStatus(function(response) {
-        statusChangeCallback(response);
-    });
-function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-}
+         (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+  
+          FB.getLoginStatus(function(response) {
+               statusChangeCallback(response);
+           });
+         function checkLoginState() {
+           FB.getLoginStatus(function(response) {
+             statusChangeCallback(response);
+           });
 </script>
 <script>
     $(document).ready(function () {

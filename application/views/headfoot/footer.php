@@ -6,10 +6,10 @@
  <script>
           window.fbAsyncInit = function() {
            FB.init({
-             appId : 'xxxxxxxxxxxxxxx',
+             appId : '284955479193568',
              autoLogAppEvents : true,
              xfbml : true,
-             version : 'v3.2'
+             version : 'v7.0'
            });
 
            FB.api(

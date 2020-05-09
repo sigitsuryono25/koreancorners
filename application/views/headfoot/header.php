@@ -12,6 +12,10 @@
         <link href="<?php echo base_url('assets/') ?>css/font-awesome.min.css" rel="stylesheet">
         <script data-ad-client="ca-pub-5324770724888200" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </head>
+    <style>
+        iframe{
+            width : 100%;
+    </style>
 
     <body>
         <!-- Headers-4 block -->

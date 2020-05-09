@@ -184,7 +184,7 @@
                                         <span class="author-date"><?php echo date_format(date_create($n->date_post), "M, d Y") ?></span>
                                     </div>
                                     <p class="para my-3">
-                                        <?php echo $this->etc->truncatedText($m->content, 100) ?>
+                                        <?php echo $this->etc->truncatedText($m->content, 100) ?> [...]
                                     </p>
                                 </div>
                             </div>

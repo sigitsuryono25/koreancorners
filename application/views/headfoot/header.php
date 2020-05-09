@@ -15,6 +15,7 @@
     <style>
         iframe{
             width : 100%;
+            heigth: auto;
     </style>
 
     <body>

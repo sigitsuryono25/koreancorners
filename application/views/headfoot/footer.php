@@ -4,6 +4,12 @@
 <script src="<?php echo base_url() ?>assets/js/grids.owl.carousel.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script type="text/javascript">
+var infolinks_pid = 3257330;
+var infolinks_wsid = 0;
+</script>
+<script type="text/javascript" src="http://resources.infolinks.com/js/infolinks_main.js"></script>
+
 <script>
     $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
